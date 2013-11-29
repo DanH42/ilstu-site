@@ -120,7 +120,7 @@
 							<script type="text/javascript">
 							var searches = window.location.search.split(/[\?\&]q=/);
 							if(searches.length !== 0)
-								document.getElementById('searchboxtext').value = searches[1].split("&")[0];
+								document.getElementById('searchboxtext').value = searches[1].split("&")[0].replace(/\+/g, " ");
 							</script>
 						<% } %>
 					</div>
