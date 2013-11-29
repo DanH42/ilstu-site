@@ -1,0 +1,17 @@
+{
+	"name": "ilstu-site",
+	"version": "0.1.0",
+	"author": "Dan Hlavenka <dhlaven@ilstu.edu>",
+	"description": "Compiles my website at http://my.ilstu.edu/~dhlaven/",
+	"dependencies": {
+		"ejs": "0.8.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DanH42/ilstu-site.git"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=0.4"
+	}
+}

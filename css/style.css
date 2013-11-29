@@ -1,0 +1,2331 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* =============================================================================
+   				Font Face Rules
+   ========================================================================== */
+
+@font-face
+{
+	font-family: 'ISURegular';
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Regular-webfont.eot');
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face
+{
+	font-family: 'ISUSemibold';
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Semibold-webfont.eot');
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Semibold-webfont.woff') format('woff'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Semibold-webfont.ttf') format('truetype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Semibold-webfont.svg#OpenSansSemibold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face
+{
+	font-family: 'ISUBold';
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Bold-webfont.eot');
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Bold-webfont.woff') format('woff'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Bold-webfont.svg#OpenSansBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face
+{
+	font-family: 'ISUItalic';
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Italic-webfont.eot');
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Italic-webfont.woff') format('woff'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Italic-webfont.ttf') format('truetype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-Italic-webfont.svg#OpenSansItalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face
+{
+	font-family: 'ISUSemiboldItalic';
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-SemiboldItalic-webfont.eot');
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-SemiboldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-SemiboldItalic-webfont.woff') format('woff'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-SemiboldItalic-webfont.ttf') format('truetype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-SemiboldItalic-webfont.svg#OpenSansSemiboldItalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face
+{
+	font-family: 'ISUBoldItalic';
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-BoldItalic-webfont.eot');
+	src: url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-BoldItalic-webfont.woff') format('woff'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-BoldItalic-webfont.ttf') format('truetype'),
+	     url('//iguides.illinoisstate.edu/cdn/fonts/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* =============================================================================
+   			HTML5 element display
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section
+{
+	display: block;
+}
+
+audio[controls], canvas, video
+{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+
+/* =============================================================================
+  				 Base
+   ========================================================================== */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Remove Android and iOS tap highlight color to prevent entire container being highlighted
+ *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+ * 4. Prevent iOS text size adjust on device orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+
+html, body
+{
+	min-height: 839px;
+}
+
+html
+{
+	background: url('/~dhlaven/img/background-tile.png');
+	font: normal normal 100%/1.5 /*16px on 24px leading*/ "ISURegular", "Myriad Pro", Helvetica, sans-serif;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	color: #333333;
+}
+
+body
+{
+	background: url('http://helpdesk.illinoisstate.edu/templates/images/background.png') repeat-x top;
+	margin: 0;
+	padding: 0;
+	font-size: .8125em;
+ /*13px on 19.5px leading*/
+}
+
+/* 
+ * These selection declarations have to be separate
+ * No text-shadow: twitter.com/miketaylr/status/12228805301
+ * Also: hot pink!
+ */
+
+::-moz-selection
+{
+	background: #ddd;
+	text-shadow: none;
+}
+
+::selection
+{
+	background: #ddd;
+	text-shadow: none;
+}
+
+
+/* =============================================================================
+   				Links
+   ========================================================================== */
+
+a
+{
+	color: #990000;
+}
+
+a:visited
+{
+	color: #990000;
+}
+
+a:focus
+{
+	color: #cc0000;
+	outline: thin dotted;
+}
+
+a:active, a:hover
+{
+	color: #cc0000;
+	outline: thin dotted;
+}
+
+/* Improve readability when focused and hovered in all browsers: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active
+{
+	outline: 0;
+}
+
+
+/* =============================================================================
+   				Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6
+{
+	margin: .75em 0 .25em 0;
+	font-family: "ISUBold", "Myriad Pro", Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+h1
+{
+	font-size: 2em;
+ /*26px on 39px leading*/
+	margin-top: 0;
+}
+
+h2
+{
+	font-size: 1.8em;
+ /*23.4px on 35.1px leading*/
+}
+
+h3
+{
+	font-size: 1.6em;
+ /*20.8px on 31.2px leading*/
+}
+
+h4
+{
+	font-size: 1.4em;
+ /*18.2px on 27.3px leading*/
+}
+
+h5
+{
+	font-size: 1.2em;
+ /*15.6px on 23.4px leading*/
+}
+
+h6
+{
+	font-size: 1em;
+ /*13px on 19.5px leading*/
+}
+
+p
+{
+	margin: 0 0 1.5em 0;
+}
+
+abbr[title]
+{
+	border-bottom: 1px dotted;
+}
+
+b, strong
+{
+	font-family: "ISUBold", sans-serif;
+	font-weight: normal;
+}
+
+i, em
+{
+	font-family: "ISUItalic", sans-serif;
+	font-style: normal;
+}
+
+b i, i b, b em, em b, strong i, i strong, strong em, em strong
+{
+	font-family: "ISUBoldItalic", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+}
+
+blockquote
+{
+	margin: 1em 40px;
+	color: #666;
+	font-family: "ISUItalic", "Myriad Pro", Helvetica, sans-serif;
+}
+
+dfn
+{
+	font-style: italic;
+}
+
+hr
+{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+ins
+{
+	background: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+mark
+{
+	background: #ff0;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+/* Redeclare monospace font family: en.wikipedia.org/wiki/User:Davidgothberg/Test59 */
+pre, code, kbd, samp
+{
+	font-family: monospace, monospace;
+	_font-family: 'courier new', monospace;
+	font-size: 1em;
+}
+
+/* Improve readability of pre-formatted text in all browsers */
+pre
+{
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+q
+{
+	quotes: none;
+}
+
+q:before, q:after
+{
+	content: "";
+	content: none;
+}
+
+small
+{
+	font-size: 85%;
+}
+
+/* Position subscript and superscript content without affecting line-height: gist.github.com/413930 */
+sub, sup
+{
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup
+{
+	top: -0.5em;
+}
+
+sub
+{
+	bottom: -0.25em;
+}
+
+
+/* =============================================================================
+   				Lists
+   ========================================================================== */
+
+ul, ol
+{
+	margin: 1em 0;
+	padding: 0 0 0 40px;
+}
+
+dd
+{
+	margin: 0 0 0 40px;
+}
+
+nav ul, nav ol
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+/* =============================================================================
+   				Embedded content
+   ========================================================================== */
+
+/*
+ * Improve image quality when scaled in IE7
+ * code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+
+img
+{
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+/*
+ * Correct overflow displayed oddly in IE9 
+ */
+
+svg:not(:root)
+{
+	overflow: hidden;
+}
+
+
+/* =============================================================================
+   				Figures
+   ========================================================================== */
+
+figure
+{
+	margin: 0;
+}
+
+
+/* =============================================================================
+   				Forms
+   ========================================================================== */
+
+form
+{
+	margin: 0;
+}
+
+fieldset
+{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* 
+ * 1. Correct color not inheriting in IE6/7/8/9 
+ * 2. Correct alignment displayed oddly in IE6/7 
+ */
+
+legend
+{
+	border: 0;
+	*margin-left: -7px;
+	padding: 0;
+}
+
+/* Indicate that 'label' will shift focus to the associated form element */
+label
+{
+	cursor: pointer;
+}
+
+/*
+ * 1. Correct font-size not inheriting in all browsers
+ * 2. Remove margins in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+
+button, input, select, textarea
+{
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+	*vertical-align: middle;
+}
+
+/*
+ * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
+ * 2. Correct inner spacing displayed oddly in IE6/7
+ */
+
+button, input
+{
+	line-height: normal;
+	*overflow: visible;
+}
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+ */
+
+button, input[type="button"], input[type="reset"], input[type="submit"]
+{
+	cursor: pointer;
+	-webkit-appearance: button;
+}
+
+/*
+ * Consistent box sizing and appearance
+ */
+
+input[type="checkbox"], input[type="radio"]
+{
+	box-sizing: border-box;
+}
+
+input[type="search"]
+{
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* 
+ * Remove inner padding and border in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ 
+ */
+
+button::-moz-focus-inner, input::-moz-focus-inner
+{
+	border: 0;
+	padding: 0;
+}
+
+/* Remove default vertical scrollbar in IE6/7/8/9 */
+textarea
+{
+	overflow: auto;
+	vertical-align: top;
+}
+
+/* Colors for form validity */
+input:valid, textarea:valid
+{
+}
+
+input:invalid, textarea:invalid
+{
+	background-color: #f0dddd;
+}
+
+label
+{
+	display: inline-block;
+	min-width: 75px;
+}
+
+button, input
+{
+	margin: 10px 0;
+}
+
+button
+{
+	text-align: right;
+}
+
+
+/* =============================================================================
+   				Tables
+   ============================================================================= */
+
+
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 0 1.5em 0;
+}
+
+td
+{
+	padding: 5px;
+}
+
+tr:nth-child(odd)
+{
+	background-color: #eee;
+}
+
+tr:nth-child(even)
+{
+	background-color: transparent;
+}
+
+.ie7 tr, .ie8 tr
+{
+	border-bottom: 1px solid #999;
+}
+
+/* =============================================================================
+   Primary styles
+   Author: Institutional Web Support - Illinois State University
+   Contributors: Jacob DeGeal, Amanda Smith, Ryan Christie
+   Date Modified: 3/20/2011
+   ========================================================================== */
+
+
+/* ============================================================================= */
+/* =============================================================================
+   				HEADER
+   ============================================================================= */
+/* ============================================================================= */
+
+header
+{
+	position: relative;
+	height: 90px;
+	width: 960px;
+	margin: 0 auto;
+	padding: 16.25px 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   				LOGO
+   -------------------------------------------------------------------------- */
+#mastlogo
+{
+	margin: 0 0 0 10px;
+}
+
+#mastlogoprint, #mastlogoshare
+{
+	display: none;
+}
+
+#mastleft
+{
+	width: 300px;
+	float: left;
+}
+
+#mastright
+{
+	float: right;
+	text-align: right;
+}
+#mastright p {margin:10px 10px 0 0;}
+#mastright p a:link, #mastright p a:visited {color:white;}
+#mastright p a:hover {color:white; text-decoration:none;}
+
+/* --------------------------------------------------------------------------
+   				SEARCH BOX
+   -------------------------------------------------------------------------- */
+/*#layersearch { margin-top:0; padding: 0px; height:32px; float:right; }*/
+#searchbox
+{
+	display: block;
+	margin: 16px 10px 0 0;
+}
+
+/*Search box text input*/
+#searchboxtext
+{
+	float: left;
+	width: 205px;
+	border: 0px !important;
+	height: 32px;
+	margin: 0;
+	padding: 0px 0 0px 15px;
+	background-color: transparent;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.searchboxtext_inactive
+{
+	color: #999;
+}
+
+.searchboxtext_active
+{
+	color: #333;
+	background-color: transparent !important;
+	background-position: 5% 50% !important;
+}
+
+.searchboxtext_text
+{
+	color: #666;
+}
+
+.searchboxlabel
+{
+	position: absolute;
+	visibility: hidden;
+}
+/*------------------------------
+ Search box text for IE7 and IE8
+--------------------------------*/
+.ie7 #searchboxtext,
+.ie8 #searchboxtext
+{
+	padding-top: 10px;
+}
+
+
+/*Background*/
+#searchbackground
+{
+	background-image: url(/~dhlaven/img/search/sprite.png);
+	background-repeat: no-repeat;
+	width: 261px;
+	height: 32px;
+}
+
+.searchbackground_inactive
+{
+	background-position: 0px 0px;
+}
+
+.searchbackground_active
+{
+	background-position: 0px -32px;
+}
+
+/*Button*/
+#searchbutton
+{
+	float: right;
+	width: 40px;
+	height: 31px;
+	background: transparent url(/~dhlaven/img/search/sprite.png) -261px -34px no-repeat;
+	border: none;
+	margin: 1px 1px 0 0;
+	text-indent: -999em;
+	font-size: 0;
+	line-height: 0;
+}
+
+#searchbutton:hover
+{
+	background-image: url(/~dhlaven/img/search/sprite.png);
+	background-position: -261px -1px;
+}
+
+/* ============================================================================= */
+/* =============================================================================
+   				MAIN NAVIGATION
+   ============================================================================= */
+/* ============================================================================= */
+#mastnav
+{
+	width: 960px;
+	margin: 0px auto;
+	-o-box-shadow: 0px -2px 2px #111;
+	-ms-box-shadow: 0px -2px 2px #111;
+	-moz-box-shadow: 0px -2px 2px #111;
+	-webkit-box-shadow: 0px -2px 2px #111;
+	box-shadow: 0px -2px 2px #111;
+}
+
+.mastlevel1, .mastlevel2
+{
+	text-align: left;
+	padding: 0 2em;
+	display: block;
+	background-color: #111;
+	background-image: -moz-linear-gradient( top, rgba( 102, 102, 102, 1 ), rgba( 17, 17, 17, 1 ) );
+	background-image: -webkit-gradient(linear,0 bottom, 0 top, from( rgba( 17, 17, 17, 1 ) ), to( rgba( 102, 102, 102, 1 ) ) );
+	background-image: -o-linear-gradient( top, rgba( 102, 102, 102, 1 ), rgba( 17, 17, 17, 1 ) );
+	background-image: -ms-linear-gradient(top, rgba( 102, 102, 102, 1 ), rgba( 17, 17, 17, 1 ) );
+ /*IE 10*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#666666 endColorstr=#111111)";
+ /*IE 8, 9*/
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#666666, endColorstr=#111111);
+ /* IE 5.5 - 7 */
+	background-image: linear-gradient( top, rgba( 102, 102, 102, 1 ) , rgba( 17, 17, 17, 1 ) );
+}
+
+.mastlink_mid a
+{
+	color: #f1f1f1;
+	text-shadow: 0px 1px 0px rgba(0,0,0,0.5);
+	text-decoration: none;
+	line-height: 40px;
+	padding: 9px 15px;
+	font-family: ISUSemiBold;
+	font-size: 1.1em;
+	background: transparent;
+	border: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.mastlink_mid a:hover
+{
+	background-color: rgba(255,255,255,0.2);
+}
+
+.mastlink_mid a.current, .mastlink_mid a.parent
+{
+	color: #cc0000;
+	text-shadow: 0px 1px 0px #ffffff;
+	background-color: #eee;
+	border: none;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-moz-box-shadow: 0px -2px 5px -1px rgba(0,0,0,.5);
+	-webkit-box-shadow: 0px -2px 5px -1px rgba(0,0,0,.5);
+	box-shadow: 0px -2px 5px -1px rgba(0,0,0,.5);
+	padding-top: 12px;
+	padding-bottom: 15px;
+}
+
+.mastlink_mid a.current.home
+{
+	background-color: #999 !important;
+}
+
+.mastlink1.parent .mastlink_mid a.parent
+{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	_height: 40px;
+	display: -moz-inline-stack;
+	padding: 0 25px;
+	text-indent: -999em;
+	background-image: url(http://iguides.illinoisstate.edu/cdn/icons/white/24/home.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+	border-radius: none;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	-o-box-shadow: none;
+}
+
+.ie7 .mastlink1.parent .mastlink_mid a.parent
+{
+	background-image: none;
+	text-indent: 0;
+}
+ 
+ 
+/*-------------------------
+   Highlighting for IE7 and IE8
+   Note: color is flat and solid, so if background color of mastnav above is changed this will have to change as well.
+ ----------------------------- */
+.ie7 .mastlink_mid a.current,
+.ie8 .mastlink_mid a.current,
+.ie7 .mastlink_mid a.parent,
+.ie8 .mastlink_mid a.parent
+{
+	background-color: #eee;
+}
+
+.ie7 .mastlink1.parent .mastlink_mid a.parent
+{
+	color: #f1f1f1;
+}
+
+#subnav
+{
+	width: 960px;
+	margin: 0px auto;
+	background-color: #999;
+	padding: .5em 0;
+}
+
+#subnav span
+{
+	margin-left: 1em;
+	color: white;
+}
+
+#subnav a
+{
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	text-decoration: underline;
+}
+
+#subnav li
+{
+	margin: 0 1em;
+}
+
+nav ul, nav li
+{
+	display: inline;
+}
+
+/* ============================================================================= */
+/* =============================================================================
+   				CONTENT
+   ============================================================================= */
+/* ============================================================================= */
+
+/* --------------------------------------------------------------------------
+   				Sub Mast
+   -------------------------------------------------------------------------- */
+#submast
+{
+	display: block;
+	width: 960px;
+	margin: 0 auto -4px auto;
+	padding: 20px 0 0 0;
+	background-color: #eee;
+}
+
+/* --------------------------------------------------------------------------
+   				Body
+   -------------------------------------------------------------------------- */
+#body
+{
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+	height: 1%;
+	min-height: 400px;
+	overflow: visible;
+	padding-bottom: 20px;
+	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5 );
+	-webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5 );
+	-moz-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5 );
+}
+
+.standard #body
+{
+	background: #eee;
+}
+
+.body_btm, .body_top
+{
+	display: block;
+	clear: both;
+}
+
+.sectionnavoff
+{
+	background-color: #eee;
+	background-image: none;
+}
+
+.sectionnavoff #wrapcontent
+{
+	width: auto;
+	float: none;
+	margin-left: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   				Left Navigation
+   -------------------------------------------------------------------------- */
+.sectionnav
+{
+	display: block;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 230px;
+	float: left;
+	border-bottom: #fff solid 1px;
+}
+
+.sectionnav a
+{
+	color: #333;
+	display: block;
+	zoom: 1;
+	padding: 8px 10px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #fff;
+	border-top: #eee 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+
+/* All Levels */
+.sectionnav ul
+{
+	display: block;
+	zoom: 1;
+	margin-bottom: 0px;
+}
+
+.sectionnav ul li
+{
+	display: block;
+	zoom: 1;
+	margin: 0;
+	padding: 0;
+	list-style: none outside none;
+}
+
+.sectionnav a.current
+{
+	background: #eee url(//iguides.illinoisstate.edu/cdn/icons/black/16/arrow.png) right center no-repeat;
+	font-family: "ISUBold", sans-serif;
+	color: #000;
+}
+
+.sectionnav a:hover
+{
+	background: #eee none right center no-repeat;
+}
+
+.sectionnav a.parent
+{
+	background-color: #eee;
+	color: #000;
+	font-family: "ISUBold", sans-serif;
+}
+
+.sectionnav a.parent:hover
+{
+	background-color: #eee;
+	color: #333;
+}
+
+.sectionnav a.current:hover
+{
+	background: #eee url(//iguides.illinoisstate.edu/cdn/icons/black/16/arrow.png) right center no-repeat;
+}
+
+.sectionnav a.first
+{
+	border-top: #eee 1px solid;
+}
+
+.sectionnav a.first:hover
+{
+}
+
+.sectionnav a.last
+{
+	border-bottom: #ccc solid 1px;
+}
+
+.sectionnav a.last:hover
+{
+}
+
+.sectionnav .siteLinkTop
+{
+	background-color: #eee;
+	height: 30px;
+}
+
+.sectionnav .siteLinkBottom
+{
+}
+
+/* Use instead of restart */
+#sectionnav li.parent + ul + li a
+{
+}
+
+#sectionnav li.parent + ul + li a:hover
+{
+}
+
+.sectionnav ul.global
+{
+	list-style: none outside none;
+	margin: 0px;
+}
+
+.sectionnav a.global
+{
+	text-shadow: 1px 1px 0px #fff;
+	border-top: #eee 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+
+.sectionnav a.global:hover
+{
+}
+
+/* Level 1 */
+.sectionnav ul.level1
+{
+	width: 229px;
+	list-style: none outside none;
+	margin: 0px;
+}
+
+.sectionnav ul.level1 a.first
+{
+	border-top: none;
+}
+
+/* Level 2 */
+.sectionnav ul.level2
+{
+	list-style: none outside none;
+}
+
+.sectionnav a.level2
+{
+	margin: 0 0 0 20px;
+	border-left: #ccc 1px solid;
+}
+
+.sectionnav a.level2.parent
+{
+	border-top: 0;
+}
+
+.sectionnav ul.level2 a.level2.last
+{
+	border-bottom: #ccc 1px solid
+}
+
+/* Level 3 */
+.sectionnav ul.level3
+{
+	list-style: none outside none;
+}
+
+.sectionnav a.level3
+{
+	margin: 0 0 0 30px;
+	border-left: #ccc 1px solid;
+}
+
+.sectionnav a.pdf-link::before{
+	content: "";
+	width: 20px;
+	height: 25px;
+	display: block;
+	background: url(http://iguides.illinoisstate.edu/cdn/icons/black/24/file3.png) center center no-repeat;
+	position: absolute;
+	left: 215px;
+	opacity: .5;
+}
+
+.sectionnav a.pdf-link:hover:before{
+opacity: 1;
+}
+
+.sectionnav a.offsite::before{
+	content: "";
+	width: 20px;
+	height: 18px;
+	display: block;
+	background: url(http://iguides.illinoisstate.edu/cdn/icons/black/16/offsite.png) center center no-repeat;
+	position: absolute;
+	left: 215px;
+	opacity: .5;
+}
+
+.sectionnav a.offsite:hover:before{
+	opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   				Content Elements
+   -------------------------------------------------------------------------- */
+span.body_top
+{
+	height: 20px;
+	background-color: #eee;
+}
+
+aside
+{
+	float: right;
+	clear: right;
+	width: 250px;
+	padding: 0 0 10px 20px;
+	margin-right: -26px;
+}
+
+.aside_mid
+{
+	background-color: #E6D0BF;
+	-moz-box-shadow: -1px 2px 4px rgba(0,0,0,0.5);
+	-webkit-box-shadow: -1px 2px 4px rgba(0,0,0,0.5);
+	box-shadow: -1px 2px 4px rgba(0,0,0,0.5);
+	padding: 0 20px 1px 10px;
+}
+
+.aside_btm
+{
+	display: block;
+	height: 10px;
+	background: transparent url(/structure/box/rightcorner_fold.png) right 0 no-repeat;
+}
+
+.giving
+{
+	float: right;
+	width: 200px;
+	display: block;
+	padding: 0;
+}
+
+.optbox
+{
+	clear: left;
+}
+
+.optbox_mid
+{
+	display: block;
+}
+
+#wrapcontent
+{
+	float: left;
+	margin: 0 20px;
+}
+
+.section_btm
+{
+	clear: both;
+	display: block;
+}
+
+/* --------------------------------------------------------------------------
+   				Content Layouts
+   -------------------------------------------------------------------------- */
+
+/* Basic Layout */
+.basic section.content1, /* content section */
+.basic.intro section.content1, /* intro section with intro option */
+.basic.intro section.content2, /* content section with intro option */
+.basic.split section.content3  /* content section with split-intro option */
+{
+	float: left;
+	padding: 0;
+}
+
+.basic.split section.content1 /* first intro section with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 450px;
+	margin-right: 20px;
+}
+
+.basic.split section.content2 /* second intro section with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 210px;
+}
+
+/* Call-out Layout */
+.callout section.content1, /* first content section */
+.callout.intro section.content2, /* first content section with call-out option */ 
+.callout.split section.content3 /* first content section with split-intro option */
+{
+	float: left;
+	padding: 0 20px 0 0;
+	width: 684px;
+}
+
+.callout.split section.content1 /* first intro section with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 450px;
+	margin-right: 20px;
+}
+
+.callout.split section.content2 /* second intro section with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 210px;
+}
+
+/* Sidebar Layout */
+.sidebar section.content1, /* first content section */
+.sidebar.intro section.content2, /* first content section with intro option */
+.sidebar.split section.content1, /* first intro section with split-intro option */
+.sidebar.split section.content3 /* first content section with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 450px;
+	margin-right: 20px;
+}
+
+.sidebar.intro section.content1 /* intro section with intro option */
+{
+	width: 680px;
+	padding: 0;
+}
+
+.sidebar section.content2, /* sidebar */
+.sidebar.intro section.content3, /* sidebar with intro option */
+.sidebar.split section.content2, /* second intro section with split-intro option */
+.sidebar.split section.content4 /* sidebar with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 210px;
+}
+
+.sidebar .giving /* giving button when displayed inside sidebar */
+{
+	float: none;
+	padding: 0;
+}
+
+/* Option box Layout */
+.optionbox section.content1, /* first content section */ 
+.optionbox.intro section.content2, /* first content section with intro option */ 
+.optionbox.split section.content1, /* first intro section with split-intro option */
+.optionbox.split section.content3 /* first content section with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 450px;
+	margin-right: 20px;
+}
+
+.optionbox.intro section.content1 /* intro section with intro option */
+{
+	width: 680px;
+	padding: 0;
+}
+
+.optionbox section.content2, /* option box container */
+.optionbox.intro section.content3, /* option box container with intro option */
+.optionbox.split section.content4 /* option box container with split-intro option */
+{
+	width: 210px;
+	float: left;
+	padding: 0;
+}
+
+.optionbox.split section.content2 /* second intro section with split-intro option */
+{
+	float: left;
+}
+
+/* Two Column Layout */
+	                                                           
+.twocol section.content1, /* column 1 */
+.twocol section.content2, /* column 2 */ 
+.twocol.intro section.content2, /* column 1 with intro option */ 
+.twocol.intro section.content3, /* column 2 with intro option */
+.twocol.split section.content3, /* intro column 1 with split-intro option */
+.twocol.split section.content4 /* intro column 2 with split-intro option */
+{
+	width: 320px;
+	float: left;
+	padding: 0;
+}
+
+.twocol section.content1, /* column 1 */ 
+.twocol.intro section.content2, /* column 1 with intro option*/  
+.twocol.split section.content3 /* intro column 1 with split-intro option */
+{
+	margin-right: 20px;
+}
+
+.twocol.intro section.content1 /* first intro section with intro option */
+{
+	width: 680px;
+	padding: 0;
+}
+
+.twocol.split section.content1 /* first intro section with split-intro option */
+{
+	float: left;
+	padding: 0;
+	width: 450px;
+	margin-right: 20px;
+}
+
+.twocol.split section.content2 /* second intro section with split-intro option */
+{
+	width: 210px;
+	float: left;
+	padding: 0;
+}
+
+/* Three Column Layout */
+	                                         
+.threecol section.content1, /* column 1 */
+.threecol section.content2, /* column 2 */
+.threecol section.content3, /* column 3 */ 
+.threecol section.content4, /* column 3 with intro option, column 2 with split intro option */
+.threecol section.content5  /* column 3 with split-intro option */
+{
+	width: 220px;
+	float: left;
+	padding: 0;
+}
+
+.threecol section.content1, /* column 1 */
+.threecol section.content2, /* column 2 */
+.threecol.intro section.content2, /* column 1 with intro option */
+.threecol.intro section.content3, /* column 2 with intro option */
+.threecol.split section.content3, /* column 1 with split-intro option */
+.threecol.split section.content4  /* column 2 with split-intro option */
+{
+	margin-right: 10px;
+}
+
+.threecol.intro section.content1 /* first intro section with intro option */
+{
+	width: 680px;
+	padding: 0;
+}
+
+.threecol.split section.content1 /* first intro section with split-intro option */
+{
+	width: 450px;
+	padding: 0;
+	margin-right: 0;
+}
+
+.threecol.split section.content2 /* second intro section with split-intro option */
+{
+	width: 210px;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   				Search Results Page
+   -------------------------------------------------------------------------- */
+
+.gsc-control-cse,
+.gsc-result
+{
+	border: none !important;
+	background: transparent !important;
+}
+
+.gsc-cursor-current-page
+{
+	background: transparent !important;
+}
+
+.search section.content1
+{
+	width: 680px;
+}
+
+.search section.content1, .search section.content2
+{
+}
+
+#searchpage_header
+{
+	background: url("images/search-header.png") no-repeat;
+	position: relative;
+	top: 15px;
+	left: -5px;
+	width: 620px;
+	height: 117px;
+	clear: both
+}
+
+#search_form
+{
+	float: right;
+	margin: 15px 0 0 0;
+}
+
+#searchpage_box, #searchpage_box_bottom
+{
+	width: 200px;
+}
+
+#nav_sort
+{
+	display: none;
+}
+
+.term_searched
+{
+	margin-left: 10px;
+	float: left;
+}
+
+#keymatch
+{
+	border: 1px solid #CECECE;
+	background-color: #FAFCFE;
+	padding: 5px;
+	margin-left: 5px;
+	clear: both;
+}
+
+#keymatch h3
+{
+	margin-top: 5px;
+}
+
+#keymatch ul
+{
+	margin-bottom: 0;
+}
+
+#keymatch li
+{
+	list-style-image: url("images/arrow_small.gif");
+}
+
+a
+
+#didyoumean
+{
+	clear: both;
+	margin-left: 10px;
+}
+
+.result_count
+{
+	float: right;
+}
+
+#search_error, #result_items
+{
+	margin-left: 0px;
+	clear: both;
+}
+
+#result_items dt
+{
+	font-size: 1em;
+	margin: 0px;
+}
+
+#result_items dd
+{
+	margin: 0px;
+}
+
+.title.doclink
+{
+	background: url(//iguides.illinoisstate.edu/cdn/icons/black/24/filedown.png) left center no-repeat;
+	padding: 1px 0 1px 20px;
+}
+
+.snippet
+{
+	margin: 0px;
+}
+
+.nolink_url
+{
+	margin-top: 0;
+	color: #67855C;
+}
+
+#bottomnav, #searchpage_form_bottom
+{
+	text-align: center;
+}
+
+#bottomnav a, #bottomnav strong
+{
+	padding: 0 5px;
+}
+
+#searchpage_form_bottom
+{
+	margin-bottom: 15px;
+}
+
+.secure_search
+{
+	background-color: #E4E6C5;
+}
+
+#keyword
+{
+	clear: both;
+	padding: 20px;
+	border: solid 1px #CCC;
+	margin: 0 40px 20px 20px;
+}
+
+#wrapCluster p
+{
+	margin: 10px 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   				Sub Content
+   -------------------------------------------------------------------------- */
+   
+#subcontent
+{
+	display: block;
+	width: 920px;
+	margin: 0 auto;
+	padding: 0 20px;
+	background: #666;
+}
+
+#subcontent h2
+{
+	margin-top: 0;
+	border-bottom: none;
+}
+
+#subcontent p
+{
+	margin-bottom: 0;
+}
+
+/* ============================================================================= */
+/* =============================================================================
+   				FOOTER
+   ============================================================================= */
+/* ============================================================================= */
+   
+footer
+{
+	width: 960px;
+	min-height: 125px;
+	/*position: relative;*/
+	margin: 0px auto;
+	color: #f1f1f1;
+	text-align: left;
+	padding: 0 0 20px 0;
+	background: #4d4d4d url(/~dhlaven/img/bg/bg_seal.png) no-repeat center -300px;
+	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5 );
+	-webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5 );
+	-moz-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.5 );
+}
+
+footer h3
+{
+	font-size: 1.1em;
+	color: #f1f1f1;
+	text-transform: uppercase;
+	border-bottom: #f1f1f1 solid 1px;
+}
+
+footer p
+{
+	font-size: .9em;
+}
+
+footer p, footer span.ou_directEdit
+{
+	color: #f1f1f1;
+	text-decoration: none;
+}
+
+footer a, footer a:focus, footer a:visited
+{
+	text-decoration: none;
+	color: #f1f1f1;
+}
+
+footer a:hover
+{
+	text-decoration: underline;
+	color: #f1f1f1;
+}
+
+#superfooter
+{
+	clear: left;
+	position: relative;
+	height: 30px;
+}
+
+#superfooter img
+{
+	position: absolute;
+	z-index: 2;
+	top: -22px;
+	left: 457px;
+}
+
+#footerdepartment
+{
+	width: 200px;
+	padding: 0 20px;
+	float: left;
+}
+
+#footeruniversity
+{
+	width: 480px;
+	float: left;
+	text-align: center;
+}
+
+#ou_modified
+{
+	display: none;
+}
+
+#footernav.columnwrap
+{
+	padding: 0 10px 20px 10px;
+	background-color: rgba(255,255,255,0.2);
+	float: left;
+	border-bottom: 1px solid #484848;
+	-webkit-box-shadow: 0 1px 0 #585858;
+	box-shadow: 0 1px 0 #585858;
+	-moz-box-shadow: 0 1px 0 #585858;
+}
+
+#footernav .col-one, #footernav .col-two, #footernav .col-three, #footernav .col-four
+{
+	float: left;
+	width: 215px;
+	margin: 0 10px;
+}
+
+#footernav.columnwrap ul
+{
+	list-style-type: none;
+	padding: 0 0 0 10px;
+}
+
+.footer_btm
+{
+	clear: both;
+	height: 1em;
+	display: block;
+}
+
+/* --------------------------------------------------------------------------
+   				Feedback Button
+   -------------------------------------------------------------------------- */
+
+#feedback
+{
+	position: fixed;
+	top: 200px;
+	right: 0px;
+	z-index: 1000;
+	background-color: #990000;
+}
+
+#feedback a
+{
+	width: 30px;
+	height: 120px;
+	background: url(/structure/btn/feedback.png) top left no-repeat;
+	display: block;
+	text-indent: -999em;
+	border: solid 3px #F8F8F8;
+	border-right: none;
+	box-shadow: 0 0 3px 1px #888;
+}
+
+#feedback a:hover
+{
+	padding-right: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   				Share This Button
+   -------------------------------------------------------------------------- */
+   
+#share_this
+{
+	position: fixed;
+	z-index: 100;
+	left: 0px;
+	top: 200px;
+	background-color: #fff;
+	display: block;
+	-webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.ie7 #share_this,
+.ie8 #share_this
+{
+	position: fixed;
+	z-index: 1000;
+	left: 0px;
+	top: auto;
+	bottom: 0px;
+	background-color: #fff;
+}
+
+.st_sharethis_custom
+{
+	background: url("//iguides.illinoisstate.edu/cdn/icons/black/24/share.png") 50% 50% no-repeat;
+	display: block;
+	height: 24px;
+	width: 20px;
+	padding: 5px;
+	cursor: pointer;
+	font-size: .75em;
+	color: #333;
+	text-indent: -999em;
+	opacity: 0.8;
+}
+
+.st_sharethis_custom:hover
+{
+	opacity: 1;
+}
+
+@media only screen and (max-width: 1000px)
+{
+	#share_this
+	{
+	    top: auto;
+	    bottom: 0px;
+	    left: 50%;
+	    text-indent: 0px;
+	    padding: 5px 5px 5px 25px;
+	    width: 90px;
+	    background-position: 5px 50%;
+	}
+}
+
+
+/* =============================================================================
+   				Home Page Layouts
+   ============================================================================= */
+
+.home .mastlink1.current .mastlink_mid a
+{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	_height: 40px;
+	display: -moz-inline-stack;
+	padding: 0 25px;
+	text-indent: -999em;
+	background-image: url(http://iguides.illinoisstate.edu/cdn/icons/white/24/home.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.ie7.home .mastlink1.current .mastlink_mid a
+{
+	background-image: none;
+	text-indent: 0;
+}
+
+/* --------------------------------------------------------------------------
+   				Basic using option box
+-------------------------------------------------------------------------- */   
+.home .threecol section.content1{
+	width: 283px;
+	height: 320px;
+	float: left;
+	background: #930505 url(/images/marquee_frame.png) no-repeat;
+	border-top: #333333 solid 4px;
+	border-bottom: #333333 solid 4px;
+	border-left: #333333 solid 4px;
+}
+
+.home .threecol section.content2{
+	width: 629px;
+	height: 320px;
+	float: left;
+	margin-bottom: 20px;
+	border-top: #333333 solid 4px;
+	border-bottom: #333333 solid 4px;
+	border-right: #333333 solid 4px;
+	
+}
+
+
+
+.home .optionbox.sectionnavoff section.content1
+{
+	width: 600px;
+	margin-right: 20px;
+	float: left;
+}
+
+.home .threecol section.content3 .section_mid .boxTop .boxWrapTwo{
+	padding-bottom: 10px;
+}
+
+.home .optionbox.sectionnavoff section.content .section_mid h1{
+	display: block;
+	height: 40px;
+	width: 220px;
+	background: #c00;
+	/*border-top-right-radius: 10px;
+	border-top-left-radius: 10px;*/
+	border-bottom: 2px solid #111;
+	color: #fff;
+	font-family: "ISUSemiBold";
+	font-size: 1.2em;
+}
+
+.home .optionbox.sectionnavoff section.content4
+{
+	width: 300px;
+	float: left;
+}
+
+.home .threecol.sectionnavoff section.content4 .section_mid .boxBtm{
+	padding-bottom: 10px;
+}
+
+.home .threecol.sectionnavoff section.content4 .section_mid .boxBtm p{
+	padding: 10px;
+}
+
+.home .threecol.sectionnavoff section.content4 .section_mid .boxTop a img {
+	padding-left: 10px;
+}
+
+ .home .threecol section.content3 .section_mid .boxTop .boxWrapOne, .home .threecol section.content3 .section_mid .boxTop .boxWrapTwo, .home .threecol section.content4 .section_mid
+{
+	background-color: #fff;
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.home .optionbox.sectionnavoff section.content4 h2, .home .threecol section.content4 h2
+{
+	margin: 0 0 10px 0;
+	padding: 10px;
+	color: #f1f1f1;
+	background-color: #cc0000;
+	font-family: "ISUSemiBold";
+	font-size: 1.5em;
+	text-shadow: 1px 2px 0px rgba(0,0,0,0.5);
+	border-bottom: #111 solid 2px;
+}
+
+.home .threecol section.content3 h2{
+	margin: 0 0 10px 0;
+	padding-left: 20px;
+	padding: 10px;
+	color: #f1f1f1;
+	background-color: #cc0000;
+	font-family: "ISUSemiBold";
+	font-size: 1.5em;
+	text-shadow: 1px 2px 0px rgba(0,0,0,0.5);
+	border-bottom: #111 solid 2px;
+	padding-left: 45px;
+}
+
+.home .threecol section.content3 h2.header2{
+	margin: 0 0 10px 0;
+	padding-left: 20px;
+	padding: 10px;
+	color: #f1f1f1;
+	background-color: #cc0000;
+	font-family: "ISUSemiBold";
+	font-size: 1.5em;
+	text-shadow: 1px 2px 0px rgba(0,0,0,0.5);
+	border-bottom: #111 solid 2px;
+
+}
+
+.home .threecol section.content3 h2 img{
+	position: absolute;
+	top: 355px;
+	left: 6px;
+	
+}
+
+/*.home .threecol section.content4 h3*/.home #wrapcontent .section_mid h3 {
+	margin: 0 0 10px 0;
+		padding: 10px;
+}
+
+.home .threecol section.content4 p{
+	padding: 0 10px 0 10px;
+}
+
+.home .optionbox.sectionnavoff section.content1 p, .home .threecol section.content3 p, .home .threecol section.content5 p
+{
+	padding: 0 10px 10px 10px;
+}
+
+.home .optionbox.sectionnavoff .giving
+{
+	float: none;
+	margin: 0 auto 10px auto;
+	width: 200px;
+	display: block;
+	padding: 0;
+}
+
+/* Calendar Box */
+.home #optbox1
+{
+	width: 220px;
+	margin: 0 auto;
+}
+
+.home #optbox1 .optbox_mid h2, .home .threecol section.content5 .section_mid .eventWrap h2
+{
+	display: block;
+	background: #c00 url(http://iguides.illinoisstate.edu/cdn/icons/color/16/calendar.png) 10px 10px no-repeat;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom: 2px solid #111;
+	color: #fff;
+	font-family: "ISUSemiBold";
+	font-size: 1.2em;
+	padding: 10px;
+	padding-left: 40px;
+}
+
+.home #optbox1 .optbox_mid h2, .home .threecol section.content5 .section_mid .applyWrap h2
+{
+	display: block;
+	background: #c00;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom: 2px solid #111;
+	color: #fff;
+	font-family: "ISUSemiBold";
+	font-size: 1.2em;
+	padding: 10px;
+}
+
+
+.home #optbox1 .optbox_mid, .home .threecol section.content5 .section_mid .eventWrap, .home .threecol section.content5 .section_mid .applyWrap 
+{
+	background-color: white;
+	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+	 border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+
+.home #optbox1 .optbox_mid p, .home .threecol section.conten5 .section_mid p
+{
+	margin-top: 0;
+	font-size: .846em;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1.5em;
+	padding: 0 10px 10px 10px;
+}
+
+.home #optbox1 .optbox_mid p a, .home .threecol section.content5 .section_mid p a
+{
+	font-size: 1.18em;
+ /*13px*/
+	margin-bottom: 10px;
+}
+
+.cal_footer a
+{
+	font-size: .846em;
+	text-decoration: none;
+	line-height: 2em;
+}
+
+/* --------------------------------------------------------------------------
+   				Three Column
+-------------------------------------------------------------------------- */
+.home .threecol section.content3, .home .threecol section.content4
+{
+	width: 330px;
+	margin-right: 20px;
+}
+
+.home .threecol.sectionnavoff .giving
+{
+	margin: -10px 10px 10px 0;
+}
+
+/*.home .threecol section.content3 h2,*/ .home .threecol section.content4 h1
+{
+	margin: 0 0 10px 0;
+	padding: 10px;
+	color: #f1f1f1;
+	background-color: #cc0000;
+	font-family: "ISUSemiBold";
+	font-size: 1.5em;
+	text-shadow: 1px 2px 0px rgba(0,0,0,0.5);
+	border-bottom: #111 solid 2px;
+}
+
+
+
+/* =============================================================================
+   Non-semantic helper classes
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* IWSS Helper Classes */
+
+
+/* HTML5 Boilerplate Helper Classes */
+
+/* For image replacement */
+.ir
+{
+	display: block;
+	text-indent: -999em;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	text-align: left;
+	direction: ltr;
+}
+
+.ir br
+{
+	display: none;
+}
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden
+{
+	display: none;
+	visibility: hidden;
+}
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden
+{
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus
+{
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible
+{
+	visibility: hidden;
+}
+
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix:before, .clearfix:after
+{
+	content: "";
+	display: table;
+}
+
+.clearfix:after
+{
+	clear: both;
+}
+
+.clearfix
+{
+	zoom: 1;
+}
+
+
+
+/* =============================================================================
+   				PLACEHOLDER MEDIA QUERIES 
+   				   for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (max-width: 480px)
+{
+  /* Style adjustments for viewports 480px and under go here */
+}
+
+@media only screen and (max-width: 768px)
+{
+  /* Style adjustments for viewports 768px and under go here */
+}
+
+@media only screen and (max-width: 1000px)
+{
+  /* Style adjustments for fixed elements */
+	#share_this
+	{
+	    display: none;
+	}
+
+	#feedback
+	{
+	    display: none;
+	}
+}
+
+
+/* =============================================================================
+   				PRINT STYLES
+   Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+ 
+@media print
+{
+	*
+	{
+	    background: transparent !important;
+	    color: black !important;
+	    text-shadow: none !important;
+	    filter: none !important;
+	    -ms-filter: none !important;
+	} /* Black prints faster: sanbeiji.com/archives/953 */
+	a, a:visited
+	{
+	    color: #444 !important;
+	    text-decoration: underline;
+	    box-shadow: none;
+	    -webkit-box-shadow: none;
+	    -moz-box-shadow: none;
+	}
+	
+	#submast {
+	display: none;
+	}
+
+	/*#body a[href]:after
+	{
+	    content: " (" attr(href) ")";
+	}*/
+
+	#body abbr[title]:after
+	{
+	    content: " (" attr(title) ")";
+	}
+
+	.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after
+	{
+	    content: "";
+	}  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+  
+  #mastlogo { display: none;}
+  #mastlogoprint { display: block; margin-left: 1em; }
+  
+  #searchbox,#tools,#iguide-filler,#iguide-float,#iguide-blackout,nav,.sectionnav,.giving,#feedback,#share_this,#ou_modified,#dev-tools {display:none;}
+  
+  footer { box-shadow: none; }
+  
+  #footernav.columnwrap { display: none; }
+  
+  .home .optionbox.sectionnavoff section.content1 .section_mid, .home .threecol section.content1 .section_mid, .home .threecol section.content2 .section_mid { box-shadow: none; }
+  
+  .home #optbox1 .optbox_mid, .home .threecol section.content3 .section_mid { box-shadow: none; }
+  
+  .basic.sectionnavon section.content1, /* content section */
+  .callout.intro.sectionnavon section.content1, /* intro section on callout layout with intro option */ 
+  .callout.intro.sectionnavon section.content2 /* content section on callout layout with intro option */ 
+  .sidebar.intro.sectionnavon section.content1, /* intro section on sidebar layout with intro option */
+  .optionbox.intro.sectionnavon section.content1, /* intro section on optionbox layout with intro option */
+  .twocol.intro.sectionnavon section.content1, /* intro section on two-column layout with intro option */
+  .threecol.intro.sectionnavon section.content1, /* intro section on three-column layout with intro option */{
+  	width: 100%;
+  	}
+  
+  .callout.split.sectionnavon section.content1, /* first intro section on callout layout with split-intro option */
+  .sidebar.split.sectionnavon section.content1, /* first intro section on sidebar layout with split-intro option */ 
+  .sidebar.split.sectionnavon section.content3, /* content section on sidebar layout with split-intro option */
+  .optionbox.split.sectionnavon section.content1, /* first intro section on optionbox layout with split-intro option */
+  .optionbox.split.sectionnavon section.content3, /* content section on optionbox layout with split-intro option */
+  .twocol.split.sectionnavon section.content1, /* first intro section on two-column layout with split-intro option */
+  .twocol.split.sectionnavon section.content3, /* content section on two-column layout with split-intro option */
+  .threecol.split.sectionnavon section.content1, /* first intro section on three-column layout with split-intro option */
+  .threecol.split.sectionnavon section.content3, /* content section on three-column layout with split-intro option */{
+  	width: 75%;
+  	}
+  
+  .callout.split.sectionnavon section.content2, /* second intro section on callout layout with split-intro option */
+  .sidebar.split.sectionnavon section.content2, /* second intro section on sidebar layout with split-intro option */ 
+  .sidebar.split.sectionnavon section.content4, /* sidebar section on sidebar layout with split-intro option */
+  .optionbox.split.sectionnavon section.content2, /* second intro section on optionbox layout with split-intro option */
+  .optionbox.split.sectionnavon section.content4, /* optionbox section on optionbox layout with split-intro option */
+  .twocol.split.sectionnavon section.content2, /* second intro section on two-column layout with split-intro option */
+  .threecol.split.sectionnavon section.content2, /* second intro section on three-column layout with split-intro option */{
+  	width: 25%;
+  	}
+  	
+  .twocol.sectionnavon section.content1, /* first column in two-column layout */
+  .twocol.sectionnavon section.content2, /* second column in two-column layout */
+  .twocol.intro.sectionnavon section.content2, /* first column in two-column layout with intro option */
+  .twocol.intro.sectionnavon section.content3, /* second column in two-column layout with intro option */
+  .twocol.split.sectionnavon section.content3, /* first column in two-column layout with split-intro option */
+  .twocol.split.sectionnavon section.content4, /* second column in two-column layout with split-intro option */{
+   	width:50%;
+  	}
+
+  .threecol.sectionnavon section.content1, /* first column in three-column layout */
+  .threecol.sectionnavon section.content2, /* second column in three-column layout */
+  .threecol.sectionnavon section.content3, /* third column in three-column layout */
+  .threecol.intro.sectionnavon section.content2, /* first column in three-column layout with intro option */
+  .threecol.intro.sectionnavon section.content3, /* second column in three-column layout with intro option */
+  .threecol.intro.sectionnavon section.content4, /* third column in three-column layout with intro option */
+  .threecol.split.sectionnavon section.content3, /* first column in three-column layout with split-intro option */
+  .threecol.split.sectionnavon section.content4, /* second column in three-column layout with split-intro option */
+  .threecol.split.sectionnavon section.content5, /* third column in three-column layout with split-intro option */{
+   	width:30%;
+  	}
+  	
+  .home .threecol section.content1,
+  .home .threecol section.content2,
+  .home .threecol section.content3 h2 img{
+  	display: none;
+  }
+  
+  .home .threecol section.content5 .section_mid .eventWrap, .home .threecol section.content5 .section_mid .applyWrap{
+  	background-color: white;
+  	moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+  }
+  
+  .home .threecol section.content3 .section_mid .boxTop .boxWrapOne, .home .threecol section.content3 .section_mid .boxTop .boxWrapTwo, .home .threecol section.content4 .section_mid{
+  	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+  }
+  
+  .noprint{
+    display: none;
+  }
+}
+ 

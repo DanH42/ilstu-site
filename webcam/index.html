@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Normal, IL webcam</title>
+		<meta http-equiv="Expires" content="Thu, 1 Jan 1970 00:00:00 GMT" />
+		<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+
+		<!--
+			This should get non-JS browsers to refresh once a minute.
+			I haven't tried it, but it's reported to work, and makes sense.
+			See http://stackoverflow.com/a/13727811/802335
+		-->
+		<script type="text/javascript">
+		document.write('\x3Cscript type="text/javascript">/*'); 
+		</script>
+		<meta http-equiv="refresh" content="60" />
+		<script type="text/javascript">/**/</script>
+
+		<style type="text/css">
+		body, html{
+			margin: 0;
+			text-align: center;
+		}#webcam{
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			max-width: 95%;
+			max-height: 95%;
+			position: absolute;
+		}
+		</style>
+	</head>
+	<body>
+		<img id="webcam" src="webcam.jpg" />
+		<script type="text/javascript">
+		var interval = -1;
+		var last_mod = "";
+
+		function update(time){
+			if(time === undefined)
+				time = new Date().getTime();
+			document.getElementById('webcam').src = 'webcam.jpg?t=' + time;
+		}
+
+		// Fetch only the headers of the image, and compare them against the
+		// last known update time. If it's changed, load the image.
+		function soft_update(){
+			var req = new XMLHttpRequest();
+			req.open('HEAD', "webcam.jpg");
+
+			req.onerror = function(){
+				// There was likely a same-origin error, so XHR won't work
+				if(interval !== -1)
+					clearInterval(interval);
+				interval = setInterval(update, 60000);
+			};
+
+			req.onreadystatechange = function(){
+				if(this.readyState === this.HEADERS_RECEIVED){
+					var mod = this.getResponseHeader("Last-Modified");
+					if(mod !== last_mod)
+						update(last_mod = mod);
+					this.abort();
+				}
+			};
+			req.send();
+		}
+
+		// On non-XMLHttp browsers, reload the image once a minute
+		if(window.XMLHttpRequest !== undefined)
+			interval = setInterval(soft_update, 10000);
+		else
+			interval = setInterval(update, 60000);
+
+		// Tracking code
+		var _paq = _paq || [];
+		_paq.push(["trackPageView"]);
+		_paq.push(["enableLinkTracking"]);
+		(function(){
+			var url = (("https:" == document.location.protocol) ? "https" : "http") + "://track.xd6.co/";
+			_paq.push(["setTrackerUrl", url + "piwik.php"]);
+			_paq.push(["setSiteId", "5"]);
+			var g = document.createElement("script");
+			var s = document.getElementsByTagName("script")[0];
+			g.type = "text/javascript";
+			g.defer = true;
+			g.async = true;
+			g.src = url + "piwik.js";
+			s.parentNode.insertBefore(g, s);
+		})();
+		</script>
+	</body>
+</html>
