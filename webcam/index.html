@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Normal, IL webcam</title>
+		<title>Illinois State University - Webcam</title>
 		<meta http-equiv="Expires" content="Thu, 1 Jan 1970 00:00:00 GMT" />
 		<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0" />
 		<meta http-equiv="Pragma" content="no-cache" />
 
 		<!--
 			This should get non-JS browsers to refresh once a minute.
-			I haven't tried it, but it's reported to work, and makes sense.
 			See http://stackoverflow.com/a/13727811/802335
 		-->
 		<script type="text/javascript">
@@ -18,11 +17,40 @@
 		<script type="text/javascript">/**/</script>
 
 		<style type="text/css">
+		@font-face{
+			font-family: 'ISURegular';
+			src: url('/~dhlaven/fonts/OpenSans-Regular-webfont.eot');
+			src: url('/~dhlaven/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+			     url('/~dhlaven/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+			     url('/~dhlaven/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+			     url('/~dhlaven/fonts/OpenSans-Regular-webfont.svg#OpenSansBold') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+
 		body, html{
 			margin: 0;
 			text-align: center;
-		}#webcam{
+			font-family: ISURegular, Arial, Helvetica, sans-serif;
+		}#title{
+			position: fixed;
+			top: .25em;
+			left: 0;
+			right: 0;
+			text-align: center;
+			font-weight: bold;
+			font-size: 150%;
+			z-index: -1;
+		}header{
+			position: fixed;
 			top: 0;
+			left: 0;
+			right: 0;
+			padding: .5em;
+			text-align: left;
+			font-size: 75%;
+		}#webcam{
+			top: 1.5em;
 			left: 0;
 			right: 0;
 			bottom: 0;
@@ -30,11 +58,17 @@
 			max-width: 95%;
 			max-height: 95%;
 			position: absolute;
+		}a{
+			color: #333;
 		}
 		</style>
 	</head>
 	<body>
 		<img id="webcam" src="webcam.jpg" />
+		<header>
+			<div id="title">Hewett Hall - West view</div>
+			<a href="/~dhlaven/">&laquo; Home</a>
+		</header>
 		<script type="text/javascript">
 		var interval = -1;
 		var last_mod = "";
