@@ -1,6 +1,8 @@
 var fs = require('fs');
 var ejs = require('ejs');
-var template = fs.readFileSync('./template.ejs') + '';
+var pageTemplate = fs.readFileSync('./template.ejs') + '';
+var webcamTemplate = fs.readFileSync('./about.ejs') + '';
+var hljs = require('highlight.js');
 
 var pages = [{"name": "Home",   "title": "",       "styles": []},
              {"name": "Search", "title": "", "styles": []},
@@ -29,7 +31,7 @@ for(var i = 0; i < pages.length; i++){
 		if(page.title.length > 0)
 			opts.title = "Dan Hlavenka - " + page.title + " - Illinois State University";
 		else
-			opts.title = "Dan Hlavenka - Illinois State University"
+			opts.title = "Dan Hlavenka - Illinois State University";
 		if(page['name'] === "Home"){
 			page.home = "current";
 			page.links = links;
@@ -39,8 +41,14 @@ for(var i = 0; i < pages.length; i++){
 		for(var j = 0; j < page.tabs.length; j++)
 			page.tabs[j].current = page['name'] === page.tabs[j]['name'] ? "current" : "";
 		page.content = fs.readFileSync(filename) + '';
-		var content = ejs.render(template, {$: page});
+		var content = ejs.render(pageTemplate, {$: page});
 		fs.writeFileSync(".." + (page['name'] === "Home" ? "" : "/" + page['name']) + "/index.html", content);
 	}else
 		console.log('ERROR: Unable to build "' + page['name'] + '". Could not load page content.');
 }
+
+console.log("Building /webcam/about.html");
+var code = fs.readFileSync("./pages/webcam.js") + '';
+code = hljs.highlight("javascript", code);
+var content = ejs.render(webcamTemplate, {code: code.value});
+fs.writeFileSync("../webcam/about.html", content);

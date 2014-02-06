@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Illinois State University - Webcam - About</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="about.css" />
+		<link rel="stylesheet" href="code.css" />
+	</head>
+	<body>
+		<header>
+			&laquo;&ensp;
+			<a href="/~dhlaven/">Home</a>
+			&ensp;&ndash;&ensp;
+			<a href="/~dhlaven/webcam/">Webcam</a>
+		</header>
+		<div id="content">
+			<a href="/~dhlaven/webcam/"><img id="webcam" src="webcam.jpg" /></a>
+			<h1>Hewett Hall Webcam</h1>
+			<p>Hi there! My name is Dan Hlavenka, and I've got a great view from the 17th floor of Hewett Hall at Illinois State University. I also had an unused HTC Incredible lying around, so I put it to use as a webcam so everyone else could have a view like this as well.</p>
+			<h3>Weather</h3>
+			<p>Weather information is pulled every 10 minutes using the <a href="http://www.wunderground.com/?apiref=8bfee99a1092682a">Weather Underground API</a>. The first number displayed is the current temperature, and the second number, if any, is what it feels like outside when accounting for things like windchill.</p>
+			<h3>Source Code</h3>
+			<p>Images are pulled from the camera, modified, and uploaded to the server using a Node.JS script like this:</p>
+			<pre><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">var</span> exec = <span class="hljs-built_in">require</span>(<span class="hljs-string">'child_process'</span>).exec;
+<span class="hljs-keyword">var</span> im = <span class="hljs-built_in">require</span>(<span class="hljs-string">'imagemagick'</span>);
+<span class="hljs-keyword">var</span> WunderNode = <span class="hljs-built_in">require</span>(<span class="hljs-string">"wundernode"</span>);
+<span class="hljs-keyword">var</span> wunder = <span class="hljs-keyword">new</span> WunderNode(<span class="hljs-string">"APIKEYAPIKEYAPIKEY"</span>);
+
+setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+	<span class="hljs-comment">// Download recent pictures from the phone</span>
+	exec(<span class="hljs-string">"adb pull /sdcard/dailyroads/Photos Photos"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+		<span class="hljs-keyword">var</span> pics = fs.readdirSync(<span class="hljs-string">"./Photos"</span>);
+		<span class="hljs-keyword">if</span>(pics.length === <span class="hljs-number">0</span>)
+			<span class="hljs-keyword">return</span>; <span class="hljs-comment">// Don't continue if there are no new pictures</span>
+
+		<span class="hljs-comment">// Sort by filename, so the newest image will be at the end</span>
+		pics.sort();
+		<span class="hljs-keyword">var</span> recent = pics.pop();
+		<span class="hljs-keyword">var</span> ctime = fs.statSync(<span class="hljs-string">"./Photos/"</span> + recent).ctime;
+		fs.renameSync(<span class="hljs-string">"./Photos/"</span> + recent, <span class="hljs-string">"./webcam.jpg"</span>);
+		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> pics)
+			fs.unlinkSync(<span class="hljs-string">"./Photos/"</span> + pics[i]);
+
+		<span class="hljs-comment">// Wipe the images on the phone</span>
+		exec(<span class="hljs-string">"adb shell rm /sdcard/dailyroads/Photos/*"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+
+			<span class="hljs-comment">// Pull the current weather</span>
+			wunder.conditions(<span class="hljs-string">"61761"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, obj)</span>{</span>
+				<span class="hljs-keyword">var</span> weather = <span class="hljs-string">""</span>;
+				<span class="hljs-keyword">if</span>(!err){
+					<span class="hljs-keyword">var</span> obs = <span class="hljs-built_in">JSON</span>.parse(obj).current_observation;
+					<span class="hljs-keyword">var</span> temp = <span class="hljs-built_in">Math</span>.round(obs.temp_f);
+					<span class="hljs-keyword">var</span> feelsLike = obs.feelslike_f;
+					weather = <span class="hljs-built_in">Math</span>.round(temp) + <span class="hljs-string">"°F"</span>;
+					<span class="hljs-keyword">if</span>(temp != feelsLike)
+						weather += <span class="hljs-built_in">Math</span>.round(temp) + <span class="hljs-string">" ("</span> + feelsLike + <span class="hljs-string">"°F)"</span>;
+				}
+
+				<span class="hljs-keyword">var</span> img = <span class="hljs-string">"webcam.jpg"</span>;
+				<span class="hljs-comment">// Scale the image and add text</span>
+				<span class="hljs-keyword">var</span> args = [img,
+					<span class="hljs-comment">// Images are higher quality when taken at a higher</span>
+					<span class="hljs-comment">// resolution and then scaled down</span>
+					<span class="hljs-string">'-resize'</span>, <span class="hljs-string">'1280x960&gt;'</span>,
+
+					<span class="hljs-string">'-fill'</span>, <span class="hljs-string">'white'</span>, <span class="hljs-string">'-stroke'</span>, <span class="hljs-string">'black'</span>,
+					<span class="hljs-string">'-font'</span>, <span class="hljs-string">'Arial'</span>, <span class="hljs-string">'-pointsize'</span>, <span class="hljs-number">24</span>,
+					<span class="hljs-string">'-gravity'</span>, <span class="hljs-string">'southwest'</span>, <span class="hljs-string">'-draw'</span>, <span class="hljs-string">"text 0,0 '"</span> + ctime  + <span class="hljs-string">"'"</span>,
+
+					<span class="hljs-string">'-gravity'</span>, <span class="hljs-string">'southeast'</span>, <span class="hljs-string">'-draw'</span>, <span class="hljs-string">"text 0,0 '"</span> + weather  + <span class="hljs-string">"'"</span>,
+				img];
+
+				im.convert(args, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span>{</span>
+					<span class="hljs-comment">// Move the final image to the web server</span>
+					<span class="hljs-keyword">var</span> is = fs.createReadStream(<span class="hljs-string">"./webcam.jpg"</span>);
+					<span class="hljs-keyword">var</span> os = fs.createWriteStream(<span class="hljs-string">"./web/webcam/webcam.jpg"</span>);
+					is.pipe(os);
+				});
+			});
+		});
+	});
+}, <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>); <span class="hljs-comment">// Run once a minute</span>
+</pre>
+	</body>
+</html>

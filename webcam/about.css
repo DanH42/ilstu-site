@@ -1,0 +1,54 @@
+@font-face{
+	font-family: 'ISURegular';
+	src: url('/~dhlaven/fonts/OpenSans-Regular-webfont.eot');
+	src: url('/~dhlaven/fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/~dhlaven/fonts/OpenSans-Regular-webfont.woff') format('woff'),
+	     url('/~dhlaven/fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+	     url('/~dhlaven/fonts/OpenSans-Regular-webfont.svg#OpenSansBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #222;
+	background-color: #f8f8f8;
+}header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #333;
+	color: white;
+	padding: .5em;
+	-webkit-box-shadow: 0 0 10px 0 #333;
+	-moz-box-shadow: 0 0 10px 0 #333;
+	-ms-box-shadow: 0 0 10px 0 #333;
+	-o-box-shadow: 0 0 10px 0 #333;
+	box-shadow: 0 0 10px 0 #333;
+}header a{
+	color: white;
+}#content{
+	background-color: white;
+	margin: auto;
+	width: 850px;
+	padding: 1em;
+	padding-top: 2em;
+	min-height: 100%;
+	-webkit-box-shadow: 0 0 20px 0 #333;
+	-moz-box-shadow: 0 0 20px 0 #333;
+	-ms-box-shadow: 0 0 20px 0 #333;
+	-o-box-shadow: 0 0 20px 0 #333;
+	box-shadow: 0 0 20px 0 #333;
+}p{
+	font-family: ISURegular, Arial, Helvetica, sans-serif;
+}pre{
+	border: 2px dashed #ccc;
+	padding: 1em;
+	clear: both;
+}#webcam{
+	float: right;
+	max-height: 200px;
+	margin: 1em;
+}

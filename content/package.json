@@ -4,7 +4,8 @@
 	"author": "Dan Hlavenka <dhlaven@ilstu.edu>",
 	"description": "Compiles my website at http://my.ilstu.edu/~dhlaven/",
 	"dependencies": {
-		"ejs": "0.8.x"
+		"ejs": "0.8.x",
+		"highlight.js": "8.0.x"
 	},
 	"repository": {
 		"type": "git",

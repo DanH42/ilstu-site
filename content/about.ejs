@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Illinois State University - Webcam - About</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="about.css" />
+		<link rel="stylesheet" href="code.css" />
+	</head>
+	<body>
+		<header>
+			&laquo;&ensp;
+			<a href="/~dhlaven/">Home</a>
+			&ensp;&ndash;&ensp;
+			<a href="/~dhlaven/webcam/">Webcam</a>
+		</header>
+		<div id="content">
+			<a href="/~dhlaven/webcam/"><img id="webcam" src="webcam.jpg" /></a>
+			<h1>Hewett Hall Webcam</h1>
+			<p>Hi there! My name is Dan Hlavenka, and I've got a great view from the 17th floor of Hewett Hall at Illinois State University. I also had an unused HTC Incredible lying around, so I put it to use as a webcam so everyone else could have a view like this as well.</p>
+			<h3>Weather</h3>
+			<p>Weather information is pulled every 10 minutes using the <a href="http://www.wunderground.com/?apiref=8bfee99a1092682a">Weather Underground API</a>. The first number displayed is the current temperature, and the second number, if any, is what it feels like outside when accounting for things like windchill.</p>
+			<h3>Source Code</h3>
+			<p>Images are pulled from the camera, modified, and uploaded to the server using a Node.JS script like this:</p>
+			<pre><%- code %></pre>
+	</body>
+</html>
