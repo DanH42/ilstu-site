@@ -17,10 +17,11 @@ var tabs = [{"name": "Webcam", "link": "/~dhlaven/webcam"},
             {"name": "Resume", "link": "/~dhlaven/Resume"}];
 
 var links = [{"name": "Personal Site", "link": "http://dan.hlavenka.me/"},
-             {"name": "LinkedIn",      "link": "http://www.linkedin.com/in/danhlavenka"},
+             {"name": "LinkedIn",      "link": "https://linkedin.com/in/DanHlavenka"},
              {"name": "GitHub",        "link": "https://github.com/DanH42"},
-             {"name": "StackOverflow", "link": "http://stackoverflow.com/users/802335"},
-             {"name": "Facebook",      "link": "https://www.facebook.com/danh42"}];
+             {"name": "StackOverflow", "link": "https://stackoverflow.com/users/802335"},
+             {"name": "Facebook",      "link": "https://www.facebook.com/DanHlavenka"},
+             {"name": "Google+",       "link": "https://google.com/+DanHlavenka"}];
 
 for(var i = 0; i < pages.length; i++){
 	var page = pages[i];
